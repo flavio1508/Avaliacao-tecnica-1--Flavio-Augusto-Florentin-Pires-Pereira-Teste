@@ -30,7 +30,7 @@ public class ResponsavelFamiliaServiceTest {
 
     @Test
     void deve_cadastrar_uma_crianca(){
-        ResponsavelFamiliaRequestDTO responsavelFamiliaRequestDTO = new ResponsavelFamiliaRequestDTO(null, null, null, null, null, null)
+        ResponsavelFamiliaRequestDTO responsavelFamiliaRequestDTO = new ResponsavelFamiliaRequestDTO(null, null, null, null, null, null);
 
         ResponsavelFamiliaResponseDTO responsavelFamiliaResponseDTO = responsavelFamiliaService.cadastrar(responsavelFamiliaRequestDTO);
 
