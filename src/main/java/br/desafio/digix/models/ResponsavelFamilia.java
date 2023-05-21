@@ -30,13 +30,16 @@ public class ResponsavelFamilia {
     private LocalDate dataDeNascimento;
     @Column(nullable = false)
     private Genero genero;
+    @Column(nullable = false)
+    private EstadoCivil estadoCivil;
 
-    public ResponsavelFamilia(String nome, String email, String cpf, LocalDate dataDeNascimento, Genero genero) {
+    public ResponsavelFamilia(String nome, String email, String cpf, LocalDate dataDeNascimento, Genero genero, EstadoCivil estadoCivil) {
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;
         this.dataDeNascimento = dataDeNascimento;
         this.genero = genero;
+        this.estadoCivil = estadoCivil;
 
     }
 

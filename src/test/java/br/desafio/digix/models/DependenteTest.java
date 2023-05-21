@@ -13,7 +13,7 @@ public class DependenteTest {
         // anos)
         LocalDate dataDeNascimentoResponsavel = LocalDate.now().minusYears(18);
         ResponsavelFamilia responsavel = new ResponsavelFamilia("Nome Responsável", "email@example.com", "123456789",
-                dataDeNascimentoResponsavel, Genero.MASCULINO);
+                dataDeNascimentoResponsavel, Genero.MASCULINO, EstadoCivil.CASADO);
 
         // Cria um dependente com a data de nascimento posterior à data limite (maior de
         // 18 anos)
@@ -33,7 +33,7 @@ public class DependenteTest {
         // anos)
         LocalDate dataDeNascimentoResponsavel = LocalDate.now().minusYears(18);
         ResponsavelFamilia responsavel = new ResponsavelFamilia("Nome Responsável", "email@example.com", "123456789",
-                dataDeNascimentoResponsavel, Genero.MASCULINO);
+                dataDeNascimentoResponsavel, Genero.MASCULINO, EstadoCivil.CASADO);
 
         // Cria um dependente com a data de nascimento anterior à data limite (menor de
         // 18 anos)

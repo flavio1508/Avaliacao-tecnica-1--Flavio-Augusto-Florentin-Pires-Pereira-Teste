@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.desafio.digix.Utils.DataConvert;
 import br.desafio.digix.dto.ResponsavelFamiliaRequestDTO;
 import br.desafio.digix.dto.ResponsavelFamiliaResponseDTO;
 import br.desafio.digix.mapper.ResponsavelFamiliaMapper;
@@ -21,21 +22,36 @@ public class ResponsavelFamiliaService {
     @Autowired
     private ResponsavelFamiliaMapper responsavelFamiliaMapper;
 
-    public ResponsavelFamiliaResponseDTO buscarPorId(Long id){
+    public ResponsavelFamiliaResponseDTO buscarPorId(Long id) {
         return responsavelFamiliaMapper.responsavelParaResponsavelFamiliaResponseDTO(buscarResponsavelPeloId(id));
     }
 
     private ResponsavelFamilia buscarResponsavelPeloId(Long id) {
         Optional<ResponsavelFamilia> responsavelOptional = responsavelFamiliaRepository.findById(id);
-        if(responsavelOptional.isEmpty()){
+        if (responsavelOptional.isEmpty()) {
             throw new NoSuchElementException();
         }
         return responsavelOptional.get();
     }
 
-    public ResponsavelFamilia cadastrar(ResponsavelFamiliaRequestDTO responsavelFamiliaRequestDTO) throws IOException{
-        ResponsavelFamilia responsavelFamilia = responsavelFamiliaMapper.responsavelFamiliaRequestparaResponsavelFamilia(responsavelFamiliaRequestDTO);
+    public ResponsavelFamilia cadastrar(ResponsavelFamiliaRequestDTO responsavelFamiliaRequestDTO) throws IOException {
+        ResponsavelFamilia responsavelFamilia = responsavelFamiliaMapper
+                .responsavelFamiliaRequestparaResponsavelFamilia(responsavelFamiliaRequestDTO);
         responsavelFamiliaRepository.save(responsavelFamilia);
         return responsavelFamiliaMapper.responsavelFamiliaRequestparaResponsavelFamilia(responsavelFamiliaRequestDTO);
+    }
+
+    public ResponsavelFamiliaResponseDTO alterar(ResponsavelFamiliaRequestDTO responsavelFamiliaRequestDTO, long id) {
+        ResponsavelFamilia responsavelFamiliaParaAlterar = buscarResponsavelPeloId(id);
+        responsavelFamiliaParaAlterar.setNome(responsavelFamiliaRequestDTO.getNome());
+        responsavelFamiliaParaAlterar.setEmail(responsavelFamiliaRequestDTO.getEmail());
+        responsavelFamiliaParaAlterar.setCpf(responsavelFamiliaRequestDTO.getCpf());
+        responsavelFamiliaParaAlterar
+                .setDataDeNascimento(DataConvert.obterData(responsavelFamiliaRequestDTO.getDataDeNascimento()));
+        responsavelFamiliaParaAlterar.setGenero(responsavelFamiliaRequestDTO.getGenero());
+
+        responsavelFamiliaRepository.save(responsavelFamiliaParaAlterar);
+
+        return responsavelFamiliaMapper.responsavelParaResponsavelFamiliaResponseDTO(responsavelFamiliaParaAlterar);
     }
 }

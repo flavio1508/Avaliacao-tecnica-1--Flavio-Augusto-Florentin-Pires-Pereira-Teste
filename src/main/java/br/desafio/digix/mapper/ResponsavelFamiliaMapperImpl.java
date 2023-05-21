@@ -14,7 +14,8 @@ public class ResponsavelFamiliaMapperImpl implements ResponsavelFamiliaMapper {
                 responsavelFamilia.getEmail(),
                 responsavelFamilia.getCpf(),
                 responsavelFamilia.getDataDeNascimento(),
-                responsavelFamilia.getGenero()
+                responsavelFamilia.getGenero(),
+                responsavelFamilia.getEstadoCivil()
 
         );
     }
@@ -28,6 +29,7 @@ public class ResponsavelFamiliaMapperImpl implements ResponsavelFamiliaMapper {
                 .cpf(responsavelFamiliaRequestDTO.getCpf())
                 .dataDeNascimento(DataConvert.obterData(responsavelFamiliaRequestDTO.getDataDeNascimento()))
                 .genero(responsavelFamiliaRequestDTO.getGenero())
+                .estadoCivil(responsavelFamiliaRequestDTO.getEstadoCivil())
                 .build();
     }
 }

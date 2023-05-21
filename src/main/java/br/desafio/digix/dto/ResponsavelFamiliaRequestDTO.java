@@ -2,6 +2,7 @@ package br.desafio.digix.dto;
 
 import java.time.LocalDate;
 
+import br.desafio.digix.models.EstadoCivil;
 import br.desafio.digix.models.Genero;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,5 +17,6 @@ public class ResponsavelFamiliaRequestDTO {
     private String cpf;
     private String dataDeNascimento;
     private Genero genero;
+    private EstadoCivil estadoCivil;
 
 }
