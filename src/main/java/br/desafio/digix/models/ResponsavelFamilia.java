@@ -1,5 +1,6 @@
 package br.desafio.digix.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,10 +20,15 @@ public class ResponsavelFamilia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
+    @Column(nullable = false, length = 200)
     private String nome;
+    @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
     private String cpf;
+    @Column(nullable = false)
     private LocalDate dataDeNascimento;
+    @Column(nullable = false)
     private Genero genero;
 
     public ResponsavelFamilia(String nome, String email, String cpf, LocalDate dataDeNascimento, Genero genero) {

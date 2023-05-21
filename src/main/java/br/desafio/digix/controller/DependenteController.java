@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = {"/api/v1/responsavelFamilia"}, produces = {"application/json"})
-public class ResponsavelFamilaController {
+@RequestMapping(path = {"/api/v1/dependente"}, produces = {"application/json"})
+public class DependenteController {
     
 }

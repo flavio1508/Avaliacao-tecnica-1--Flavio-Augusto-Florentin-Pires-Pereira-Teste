@@ -10,11 +10,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResponsavelFamiliaRequestDTO {
+public class DependenteRequestDTO {
     private String nome;
-    private String email;
-    private String cpf;
-    private String dataDeNascimento;
     private Genero genero;
-
+    private LocalDate dataDeNascimentoDependente;
 }

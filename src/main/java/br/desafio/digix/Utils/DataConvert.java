@@ -1,0 +1,15 @@
+package br.desafio.digix.Utils;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+public class DataConvert {
+    public static LocalDate obterData(String dataEmString){
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return LocalDate.parse(dataEmString, formato);
+    }
+
+   
+}
