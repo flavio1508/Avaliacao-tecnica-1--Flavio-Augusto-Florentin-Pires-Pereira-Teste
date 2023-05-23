@@ -16,7 +16,7 @@ public class FamiliaResponseDTO {
     private int numeroDependentes;
     private int pontos;
 
-    public FamiliaResponseDTO(Familia familia){
+    public FamiliaResponseDTO(Familia familia) {
         this.id = familia.getId();
         this.rendaTotal = familia.getRendaTotal();
         this.numeroDependentes = familia.getNumeroDependentes();

@@ -1,6 +1,5 @@
 package br.desafio.digix.models;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -38,7 +37,9 @@ public class ResponsavelFamilia {
 
     @OneToMany
     private List<Dependentes> dependentes;
-    public ResponsavelFamilia(String nome, String email, String cpf, LocalDate dataDeNascimento, Genero genero, EstadoCivil estadoCivil) {
+
+    public ResponsavelFamilia(String nome, String email, String cpf, LocalDate dataDeNascimento, Genero genero,
+            EstadoCivil estadoCivil) {
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;

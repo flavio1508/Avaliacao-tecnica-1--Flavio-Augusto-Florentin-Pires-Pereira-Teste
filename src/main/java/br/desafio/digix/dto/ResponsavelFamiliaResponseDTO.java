@@ -23,7 +23,7 @@ public class ResponsavelFamiliaResponseDTO {
     private Genero genero;
     private EstadoCivil estadoCivil;
 
-    public ResponsavelFamiliaResponseDTO(ResponsavelFamilia responsavelFamilia){
+    public ResponsavelFamiliaResponseDTO(ResponsavelFamilia responsavelFamilia) {
         this.Id = responsavelFamilia.getId();
         this.nome = responsavelFamilia.getNome();
         this.email = responsavelFamilia.getEmail();

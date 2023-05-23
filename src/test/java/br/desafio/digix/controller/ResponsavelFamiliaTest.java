@@ -74,7 +74,7 @@ public class ResponsavelFamiliaTest {
 		ResponsavelFamilia responsavelFamilia = ResponsavelFamilia.builder().nome("Flavio").email("flavio@gmail.com").cpf("045.123.254-45").dataDeNascimento(dataDeNascimento).genero(Genero.MASCULINO).estadoCivil(EstadoCivil.SOLTEIRO).build();
 		responsavelFamiliaRepository.save(responsavelFamilia);
 		
-		MvcResult mvcResult = mockMvc.perform(get("/api/v1/responsavelFamilia" + responsavelFamilia.getId())).andReturn();
+		MvcResult mvcResult = mockMvc.perform(get("/api/v1/responsavelFamilia/" + responsavelFamilia.getId())).andReturn();
 
 		int status = mvcResult.getResponse().getStatus();
 		assertEquals(HttpStatus.OK.value(), status);

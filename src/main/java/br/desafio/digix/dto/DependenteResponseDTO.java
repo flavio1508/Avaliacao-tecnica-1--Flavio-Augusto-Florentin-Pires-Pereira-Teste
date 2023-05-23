@@ -1,6 +1,5 @@
 package br.desafio.digix.dto;
 
-
 import java.time.LocalDate;
 
 import br.desafio.digix.models.Genero;

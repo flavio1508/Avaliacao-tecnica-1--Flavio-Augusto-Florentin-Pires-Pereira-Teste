@@ -26,41 +26,41 @@ import br.desafio.digix.service.ResponsavelFamiliaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
-
-
-
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = {"/api/v1/responsavelFamilia"}, produces = {"application/json"})
+@RequestMapping(path = { "/api/v1/responsavelFamilia" }, produces = { "application/json" })
 public class ResponsavelFamiliaController {
-    private final  ResponsavelFamiliaService responsavelFamiliaService;
-    
+    private final ResponsavelFamiliaService responsavelFamiliaService;
+
     public ResponsavelFamiliaController(ResponsavelFamiliaService responsavelFamiliaService) {
         this.responsavelFamiliaService = responsavelFamiliaService;
     }
-    
-   
+
     @Autowired
     private ResponsavelFamiliaRepository responsavelFamiliaRepository;
-    
-    
+
     @Operation(summary = "Cadastrar um novo responsavelFamilia")
     @ApiResponse(responseCode = "201")
-    @PostMapping(consumes = {"application/json"})
-    public ResponseEntity<ResponsavelFamilia> cadastrar(@RequestBody @Valid ResponsavelFamiliaRequestDTO responsavelFamiliaRequestDTO) throws IOException {
-        return ResponseEntity.status(HttpStatus.CREATED).body(responsavelFamiliaService.cadastrar(responsavelFamiliaRequestDTO));
+    @PostMapping(consumes = { "application/json" })
+    public ResponseEntity<ResponsavelFamilia> cadastrar(
+            @RequestBody @Valid ResponsavelFamiliaRequestDTO responsavelFamiliaRequestDTO) throws IOException {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(responsavelFamiliaService.cadastrar(responsavelFamiliaRequestDTO));
     }
 
-    @Operation(summary ="Buscar um responsavelFamilia pelo seu id")
-    @ApiResponse(responseCode = "200", description = "Retorna a responsavel solicitada" )
-    @GetMapping(path= "/{id}")
-    public ResponseEntity<ResponsavelFamiliaResponseDTO> buscarPorId(@PathVariable Long id)  throws NameNotFoundException {
+    @Operation(summary = "Buscar um responsavelFamilia pelo seu id")
+    @ApiResponse(responseCode = "200", description = "Retorna a responsavel solicitada")
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<ResponsavelFamiliaResponseDTO> buscarPorId(@PathVariable Long id)
+            throws NameNotFoundException {
         return ResponseEntity.ok(responsavelFamiliaService.buscarPorId(id));
     }
+
     @Operation(summary = "Alterar um desejo")
     @ApiResponse(responseCode = "200")
-    @PutMapping(path="/{id}", consumes={"application/json"})
-    public ResponseEntity<ResponsavelFamiliaResponseDTO> alterarDesejo(@RequestBody ResponsavelFamiliaRequestDTO responsavelFamiliaRequestDTO, @PathVariable Long id){
+    @PutMapping(path = "/{id}", consumes = { "application/json" })
+    public ResponseEntity<ResponsavelFamiliaResponseDTO> alterarDesejo(
+            @RequestBody ResponsavelFamiliaRequestDTO responsavelFamiliaRequestDTO, @PathVariable Long id) {
         return ResponseEntity.ok(responsavelFamiliaService.alterar(responsavelFamiliaRequestDTO, id));
     }
 
