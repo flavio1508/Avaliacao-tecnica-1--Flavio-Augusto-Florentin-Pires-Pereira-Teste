@@ -54,7 +54,7 @@ public class ResponsavelFamiliaTest {
 	public void deve_incluir_um_responsavel_familia() throws Exception  {
 		int quantitadeEsperado = 1;
 		
-		ResponsavelFamiliaRequestDTO responsavelFamiliaRequestDTO = new ResponsavelFamiliaRequestDTO("Maria", "maria@gmail.com", "021.365.012-15", "20/12/2000", Genero.FEMININO, EstadoCivil.SOLTEIRO);
+		ResponsavelFamiliaRequestDTO responsavelFamiliaRequestDTO = new ResponsavelFamiliaRequestDTO("Maria", "maria@gmail.com", "021.365.012-15", "200/08/15", Genero.FEMININO, EstadoCivil.SOLTEIRO);
 
 		mockMvc.perform(post("/api/v1/responsavelFamilia")
 				.contentType(MediaType.APPLICATION_JSON)
