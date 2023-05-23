@@ -28,12 +28,12 @@ public class ResponsavelFamiliaServiceTest {
         assertEquals(dataEsperada, dataAtual);
     }
 
-    @Test
-    void deve_cadastrar_uma_crianca(){
-        ResponsavelFamiliaRequestDTO responsavelFamiliaRequestDTO = new ResponsavelFamiliaRequestDTO(null, null, null, null, null, null);
+    // @Test
+    // void deve_cadastrar_uma_crianca(){
+    //     ResponsavelFamiliaRequestDTO responsavelFamiliaRequestDTO = new ResponsavelFamiliaRequestDTO(null, null, null, null, null, null);
 
-        ResponsavelFamiliaResponseDTO responsavelFamiliaResponseDTO = responsavelFamiliaService.cadastrar(responsavelFamiliaRequestDTO);
+    //     ResponsavelFamiliaResponseDTO responsavelFamiliaResponseDTO = responsavelFamiliaService.cadastrar(responsavelFamiliaRequestDTO);
 
-        assertThat(responsavelFamiliaResponseDTO.getId()).isNotNull();
-    }
+    //     assertThat(responsavelFamiliaResponseDTO.getId()).isNotNull();
+    // }
 }

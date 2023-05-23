@@ -34,11 +34,12 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 @RequestMapping(path = {"/api/v1/responsavelFamilia"}, produces = {"application/json"})
 public class ResponsavelFamiliaController {
     private final  ResponsavelFamiliaService responsavelFamiliaService;
-
-    public ResponsavelFamiliaController(ResponsavelFamiliaService responsavelFamiliaService){
+    
+    public ResponsavelFamiliaController(ResponsavelFamiliaService responsavelFamiliaService) {
         this.responsavelFamiliaService = responsavelFamiliaService;
     }
-
+    
+   
     @Autowired
     private ResponsavelFamiliaRepository responsavelFamiliaRepository;
     

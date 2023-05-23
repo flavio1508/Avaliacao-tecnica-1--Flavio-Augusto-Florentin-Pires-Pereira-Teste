@@ -1,10 +1,13 @@
 package br.desafio.digix.mapper;
 
+import org.springframework.stereotype.Component;
+
 import br.desafio.digix.Utils.DataConvert;
 import br.desafio.digix.dto.ResponsavelFamiliaRequestDTO;
 import br.desafio.digix.dto.ResponsavelFamiliaResponseDTO;
 import br.desafio.digix.models.ResponsavelFamilia;
 
+@Component
 public class ResponsavelFamiliaMapperImpl implements ResponsavelFamiliaMapper {
     @Override
     public ResponsavelFamiliaResponseDTO responsavelParaResponsavelFamiliaResponseDTO(
