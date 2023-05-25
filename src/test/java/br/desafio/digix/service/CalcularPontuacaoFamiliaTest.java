@@ -16,7 +16,7 @@ public class CalcularPontuacaoFamiliaTest {
     CalcularPontuacaoService calcularPontuacaoService;
 
     @Test
-     void deve_trazer_pontuacao() {
+    void deve_trazer_pontuacao() {
         // Criação das famílias
         Familia familia1 = new Familia();
         familia1.setRendaTotalFamilia(1000);
@@ -51,16 +51,16 @@ public class CalcularPontuacaoFamiliaTest {
         }
     }
 
-   // Método auxiliar para criar uma lista de dependentes com idade inferior a 18 anos
-private static List<Dependentes> criarListaDependentes(int quantidade) {
-    List<Dependentes> dependentes = new ArrayList<>();
-    for (int i = 0; i < quantidade; i++) {
-        Dependentes dependente = new Dependentes();
-        dependente.setId(i < 3 ? (long) (i + 1) : 20L);
-        dependentes.add(dependente);
+    // Método auxiliar para criar uma lista de dependentes com idade inferior a 18
+    // anos
+    private static List<Dependentes> criarListaDependentes(int quantidade) {
+        List<Dependentes> dependentes = new ArrayList<>();
+        for (int i = 0; i < quantidade; i++) {
+            Dependentes dependente = new Dependentes();
+            dependente.setId(i < 3 ? (long) (i + 1) : 20L);
+            dependentes.add(dependente);
+        }
+        return dependentes;
     }
-    return dependentes;
-}
-
 
 }

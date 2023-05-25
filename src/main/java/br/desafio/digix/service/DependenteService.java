@@ -34,7 +34,7 @@ public class DependenteService {
         return dependenteOptional.get();
     }
 
-    public DependenteResponseDTO cadastrar(DependenteRequestDTO dependenteRequestDTO) throws IOException{
+    public DependenteResponseDTO cadastrar(DependenteRequestDTO dependenteRequestDTO) throws IOException {
         Dependentes dependentes = dependenteMapper.dependenteFamiliaRequestparaDependenteFamilia(dependenteRequestDTO);
         dependenteRepository.save(dependentes);
         return dependenteMapper.dependenteParaDependenteResponseDTO(dependentes);
@@ -44,7 +44,8 @@ public class DependenteService {
         Dependentes dependenteParaAlterar = buscarDependentePeloId(id);
         dependenteParaAlterar.setNome(dependenteRequestDTO.getNome());
         dependenteParaAlterar.setGenero(dependenteRequestDTO.getGenero());
-        dependenteParaAlterar.setDataDeNascimentoDependente(DataConvert.obterData(dependenteRequestDTO.getDataDeNascimentoDependente()));
+        dependenteParaAlterar.setDataDeNascimentoDependente(
+                DataConvert.obterData(dependenteRequestDTO.getDataDeNascimentoDependente()));
 
         dependenteRepository.save(dependenteParaAlterar);
 

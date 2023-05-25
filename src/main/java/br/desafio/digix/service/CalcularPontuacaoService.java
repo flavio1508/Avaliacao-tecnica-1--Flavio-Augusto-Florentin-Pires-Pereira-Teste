@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.desafio.digix.models.Dependentes;
 import br.desafio.digix.models.Familia;
+
 @Service
 public class CalcularPontuacaoService {
     public List<Familia> ordenarFamilias(List<Familia> familias) {
@@ -55,5 +56,3 @@ public class CalcularPontuacaoService {
         return numDependentes;
     }
 }
-
-
