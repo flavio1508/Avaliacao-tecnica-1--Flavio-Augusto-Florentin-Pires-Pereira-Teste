@@ -12,4 +12,3 @@ public interface ResponsavelFamiliaMapper {
                         ResponsavelFamiliaRequestDTO responsavelFamiliaRequestDTO);
 
 }
-//

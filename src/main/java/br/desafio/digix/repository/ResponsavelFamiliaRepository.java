@@ -18,4 +18,3 @@ public interface ResponsavelFamiliaRepository extends CrudRepository<Responsavel
    ResponsavelFamilia findFirstByIdOrderByIdDesc(Long id);
 
 }
-//
