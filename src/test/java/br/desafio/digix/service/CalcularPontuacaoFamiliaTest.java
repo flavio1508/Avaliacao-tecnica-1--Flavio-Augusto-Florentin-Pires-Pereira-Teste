@@ -1,8 +1,10 @@
 package br.desafio.digix.service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,8 +18,25 @@ public class CalcularPontuacaoFamiliaTest {
     CalcularPontuacaoService calcularPontuacaoService;
 
     @Test
+    void ordenar_familias_por_pontuacao() {
+        Familia familia1 = new Familia();
+        familia1.setPontuacao(3);
+        familia1.setRendaTotalFamilia(1200);
+
+        Familia familia2 = new Familia();
+        familia2.setPontuacao(5);
+        familia2.setRendaTotalFamilia(800);
+
+        List<Familia> familias = Arrays.asList(familia1, familia2);
+
+        List<Familia> familiasOrdenadas = calcularPontuacaoService.ordenarFamilias(familias);
+
+        List<Familia> familiasEsperadas = Arrays.asList(familia2, familia1);
+        Assertions.assertThat(familiasOrdenadas).isEqualTo(familiasEsperadas);
+    }
+
+    @Test
     void deve_trazer_pontuacao() {
-        // Criação das famílias
         Familia familia1 = new Familia();
         familia1.setRendaTotalFamilia(1000);
         familia1.setDependentes(criarListaDependentes(2));
@@ -30,19 +49,15 @@ public class CalcularPontuacaoFamiliaTest {
         familia3.setRendaTotalFamilia(800);
         familia3.setDependentes(criarListaDependentes(1));
 
-        // Criação da lista de famílias
         List<Familia> familias = new ArrayList<>();
         familias.add(familia1);
         familias.add(familia2);
         familias.add(familia3);
 
-        // Instanciação do serviço
         CalcularPontuacaoService service = new CalcularPontuacaoService();
 
-        // Ordenação das famílias por pontuação
         List<Familia> familiasOrdenadas = service.ordenarFamilias(familias);
 
-        // Exibição do resultado ordenado
         for (Familia familia : familiasOrdenadas) {
             System.out.println("Pontuação: " + familia.getPontuacao());
             System.out.println("Renda Total: " + familia.getRendaTotalFamilia());
@@ -51,8 +66,6 @@ public class CalcularPontuacaoFamiliaTest {
         }
     }
 
-    // Método auxiliar para criar uma lista de dependentes com idade inferior a 18
-    // anos
     private static List<Dependentes> criarListaDependentes(int quantidade) {
         List<Dependentes> dependentes = new ArrayList<>();
         for (int i = 0; i < quantidade; i++) {

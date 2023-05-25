@@ -30,17 +30,12 @@ public class Familia {
     private int rendaTotalFamilia;
     private int pontuacao;
 
-    public Familia(ResponsavelFamilia responsavelFamilia, List<Dependentes> dependentes, int rendaTotalFamilia) {
+    public Familia(ResponsavelFamilia responsavelFamilia, List<Dependentes> dependentes, int rendaTotalFamilia,
+            int pontuacao) {
         this.responsavelFamilia = responsavelFamilia;
         this.dependentes = dependentes;
-    }
-
-    public ResponsavelFamilia getResponsavelFamilia() {
-        return responsavelFamilia;
-    }
-
-    public List<Dependentes> getDependentes() {
-        return dependentes;
+        this.rendaTotalFamilia = rendaTotalFamilia;
+        this.pontuacao = pontuacao;
     }
 
 }

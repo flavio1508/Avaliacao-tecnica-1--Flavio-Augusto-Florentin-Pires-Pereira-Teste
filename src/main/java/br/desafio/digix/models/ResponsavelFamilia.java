@@ -37,7 +37,7 @@ public class ResponsavelFamilia {
     @Column(nullable = false)
     private EstadoCivil estadoCivil;
 
-    @OneToMany
+    @OneToMany(mappedBy = "responsavelFamilia")
     private List<Dependentes> dependentes;
 
     public ResponsavelFamilia(String nome, String email, String cpf, LocalDate dataDeNascimento, Genero genero,

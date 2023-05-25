@@ -38,7 +38,7 @@ public class DependenteController {
     @Autowired
     private DependenteRepository dependenteRepository;
 
-    @Operation(summary = "Cadastrar um novo responsavelFamilia")
+    @Operation(summary = "Cadastrar um novo dependente")
     @ApiResponse(responseCode = "201")
     @PostMapping(consumes = { "application/json" })
     public ResponseEntity<DependenteResponseDTO> cadastrar(

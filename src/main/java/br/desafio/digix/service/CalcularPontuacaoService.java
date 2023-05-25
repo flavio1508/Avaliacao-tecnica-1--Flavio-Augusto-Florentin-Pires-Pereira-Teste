@@ -1,5 +1,6 @@
 package br.desafio.digix.service;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -11,13 +12,11 @@ import br.desafio.digix.models.Familia;
 @Service
 public class CalcularPontuacaoService {
     public List<Familia> ordenarFamilias(List<Familia> familias) {
-        // Calcular pontuação para cada família
         for (Familia familia : familias) {
             int pontuacao = calcularPontuacaoFamilia(familia);
             familia.setPontuacao(pontuacao);
         }
 
-        // Ordenar famílias por pontuação de forma decrescente
         familias.sort(Comparator.comparingInt(Familia::getPontuacao).reversed());
 
         return familias;
@@ -26,7 +25,6 @@ public class CalcularPontuacaoService {
     private int calcularPontuacaoFamilia(Familia familia) {
         int pontuacao = 0;
 
-        // Verificar renda total da família
         int rendaTotal = familia.getRendaTotalFamilia();
         if (rendaTotal <= 900) {
             pontuacao += 5;
@@ -34,8 +32,10 @@ public class CalcularPontuacaoService {
             pontuacao += 3;
         }
 
-        // Verificar número de dependentes
         List<Dependentes> dependentes = familia.getDependentes();
+        if (dependentes == null) {
+            dependentes = new ArrayList<>(); 
+        }
         int numDependentes = calcularNumeroDependentes(dependentes);
         if (numDependentes >= 3) {
             pontuacao += 3;

@@ -78,9 +78,9 @@ public class DependenteTest {
 		assertEquals(HttpStatus.OK.value(), status);
 
 		String content = mvcResult.getResponse().getContentAsString();
-		DependenteResponseDTO criancaDTO = JsonUtil.mapFromJsonModuleJavaTime(content, DependenteResponseDTO.class);
+		DependenteResponseDTO dependenteDTO = JsonUtil.mapFromJsonModuleJavaTime(content, DependenteResponseDTO.class);
 
-		Assertions.assertThat(dependentes.getId()).isEqualTo(criancaDTO.getId());
+		Assertions.assertThat(dependentes.getId()).isEqualTo(dependenteDTO.getId());
 	}
 
 	@Test
