@@ -1,7 +1,7 @@
 ﻿# Teste_Digix
 ## 🔧 Tecnologias utilizadas 🔧
 Para o desenvolvimento do projeto está sendo utilizado o SpringBoot + PostgreSQL;
-## 👨‍💻 Time 👩‍💻
+## 👨‍💻 Desenvolvido 👩‍💻
 <table>
 <tr>
  <td>
