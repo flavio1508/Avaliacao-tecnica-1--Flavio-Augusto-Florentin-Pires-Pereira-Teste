@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrePersist;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,16 +39,6 @@ public class Dependentes {
         this.genero = genero;
         this.dataDeNascimentoDependente = dataDeNascimentoDependente;
         this.responsavelFamilia = responsavelFamilia;
-    }
-
-    @PrePersist
-    void verificarIdade() {
-        LocalDate dataAtual = LocalDate.now();
-        LocalDate dataDezoitoAnosAtras = dataAtual.minusYears(18);
-
-        if (dataDeNascimentoDependente.isAfter(dataDezoitoAnosAtras)) {
-            throw new IllegalArgumentException("O dependente deve ser menor de 18 anos.");
-        }
     }
 
 }

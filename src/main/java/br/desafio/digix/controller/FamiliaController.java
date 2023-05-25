@@ -9,6 +9,9 @@
 // import br.desafio.digix.dto.FamiliaResponseDTO;
 // import br.desafio.digix.models.Familia;
 // import br.desafio.digix.service.FamiliaService;
+// import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.RequestParam;
+
 
 // @RestController
 // @RequestMapping("/familias")
@@ -19,18 +22,6 @@
 //         this.familiaService = familiaService;
 //     }
     
-//     @PostMapping
-//     public ResponseEntity<FamiliaResponseDTO> criarFamilia(@RequestBody FamiliaRequestDTO requestDTO) {
-//         Familia familia = new Familia();
-//         familia.setRendaTotal(requestDTO.getRendaTotal());
-//         familia.setNumeroDependentes(requestDTO.getNumeroDependentes());
-        
-//         familiaService.calcularPontos(familia);
-        
-//         familia = familiaService.criarFamilia(familia); // Método do serviço para criar a família
-        
-//         FamiliaResponseDTO responseDTO = FamiliaResponseDTO.fromFamilia(familia);
-        
-//         return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
-//     }
+//   //get familias ordenadas
+  
 // }

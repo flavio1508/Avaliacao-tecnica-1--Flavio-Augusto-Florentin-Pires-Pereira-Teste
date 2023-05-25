@@ -1,69 +1,62 @@
 package br.desafio.digix.controller;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
-
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 
-import br.desafio.digix.Utils.JsonUtil;
-import br.desafio.digix.dto.ResponsavelFamiliaRequestDTO;
-import br.desafio.digix.dto.ResponsavelFamiliaResponseDTO;
-import br.desafio.digix.models.EstadoCivil;
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import br.desafio.digix.dto.DependenteRequestDTO;
+import br.desafio.digix.models.Dependentes;
 import br.desafio.digix.models.Genero;
-import br.desafio.digix.models.ResponsavelFamilia;
-import br.desafio.digix.repository.ResponsavelFamiliaRepository;
-
+import br.desafio.digix.repository.DependenteRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import br.desafio.digix.Utils.JsonUtil;
+import java.util.List;
 import org.assertj.core.api.Assertions;
+
 
 
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class ResponsavelFamiliaTest {
-        
+public class DependenteTest {
     @Autowired
     private MockMvc mockMvc;
 
     @Autowired
-    private ResponsavelFamiliaRepository responsavelFamiliaRepository;
-    
-    @BeforeEach
-	@AfterEach
-	public void deleteDados() {
-		responsavelFamiliaRepository.deleteAll();
+    private DependenteRepository dependenteRepository;
 
-	};
+    @BeforeEach
+    @AfterEach
+    public void deleteDados() {
+        dependenteRepository.deleteAll();
+
+    };
 
     @Test
 	public void deve_incluir_um_responsavel_familia() throws Exception  {
 		int quantitadeEsperado = 1;
 		
-		ResponsavelFamiliaRequestDTO responsavelFamiliaRequestDTO = new ResponsavelFamiliaRequestDTO("Maria", "maria@gmail.com", "021.365.012-15", "1998-08-15", Genero.FEMININO, EstadoCivil.SOLTEIRO);
+		DependenteRequestDTO dependenteRequestDTO = new DependenteRequestDTO("Flavio", Genero.MASCULINO, "15/08/200");
 
 		mockMvc.perform(post("/api/v1/responsavelFamilia")
 				.contentType(MediaType.APPLICATION_JSON)
-				.content(JsonUtil.toJson(responsavelFamiliaRequestDTO)))
+				.content(JsonUtil.toJson(dependenteRequestDTO)))
 				.andExpect(status().isCreated());
 
-		List<ResponsavelFamilia> responsavelFamiliaRetornados = responsavelFamiliaRepository.findByNomeContainingIgnoreCase(responsavelFamiliaRequestDTO.getNome());
-		Assertions.assertThat(responsavelFamiliaRetornados.size()).isEqualTo(quantitadeEsperado);
-		Assertions.assertThat(responsavelFamiliaRetornados.stream().map(ResponsavelFamilia::getNome).toList()).contains(responsavelFamiliaRequestDTO.getNome());
+		List<Dependentes> dependentesRetornados = dependenteRepository.findByNomeContainingIgnoreCase(dependenteRequestDTO.getNome());
+		Assertions.assertThat(dependentesRetornados.size()).isEqualTo(quantitadeEsperado);
+		Assertions.assertThat(dependentesRetornados.stream().map(Dependentes::getNome).toList()).contains(dependenteRequestDTO.getNome());
 
 	}
 

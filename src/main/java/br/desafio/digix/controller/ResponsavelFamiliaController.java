@@ -56,7 +56,7 @@ public class ResponsavelFamiliaController {
         return ResponseEntity.ok(responsavelFamiliaService.buscarPorId(id));
     }
 
-    @Operation(summary = "Alterar um desejo")
+    @Operation(summary = "Alterar um responsavelFamilia")
     @ApiResponse(responseCode = "200")
     @PutMapping(path = "/{id}", consumes = { "application/json" })
     public ResponseEntity<ResponsavelFamiliaResponseDTO> alterarDesejo(
