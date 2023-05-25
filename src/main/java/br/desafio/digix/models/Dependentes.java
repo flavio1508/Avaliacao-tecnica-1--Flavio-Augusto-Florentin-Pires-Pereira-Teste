@@ -41,6 +41,6 @@ public class Dependentes {
         this.genero = genero;
         this.dataDeNascimentoDependente = dataDeNascimentoDependente;
         this.responsavelFamilia = responsavelFamilia;
-    }
+    }//
 
 }
