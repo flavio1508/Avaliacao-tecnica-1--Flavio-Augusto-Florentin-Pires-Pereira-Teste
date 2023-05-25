@@ -36,7 +36,7 @@ public class CalcularPontuacaoFamiliaTest {
     }
 
     @Test
-    void deve_trazer_pontuacao() {
+    void teste_de_calculo_de_pontuação_das_familias() {
         Familia familia1 = new Familia();
         familia1.setRendaTotalFamilia(1000);
         familia1.setDependentes(criarListaDependentes(2));

@@ -34,7 +34,7 @@ public class CalcularPontuacaoService {
 
         List<Dependentes> dependentes = familia.getDependentes();
         if (dependentes == null) {
-            dependentes = new ArrayList<>(); 
+            dependentes = new ArrayList<>();
         }
         int numDependentes = calcularNumeroDependentes(dependentes);
         if (numDependentes >= 3) {
